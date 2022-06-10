@@ -24,6 +24,8 @@ export default {
 <style lang="scss" scoped>
 header {
   background-color: rgb(0, 0, 0);
+  position: fixed;
+  width: 100%;
 
   img {
     height: 3rem;
