@@ -1,17 +1,15 @@
 <template>
   <main>
-      <SectionFilms/>
+    <SectionFilms />
   </main>
 </template>
 
 <script>
-import SectionFilms from '../sections/SectionFilms.vue'
+import SectionFilms from "../sections/SectionFilms.vue"
 export default {
   components: { SectionFilms },
-    name: 'BaseMain'
+  name: "BaseMain",
 }
 </script>
 
-<style lang='scss' scoped>
-
-</style>
+<style lang="scss" scoped></style>
