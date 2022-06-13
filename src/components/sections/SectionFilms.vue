@@ -1,28 +1,19 @@
 <template>
   <section class="film-section">
+    <h2>Film</h2>
     <ul class="d-flex flex-wrap">
       <li
         class="card-box p-2"
         v-for="film in SelectedFilm.films"
         :key="film.id"
       >
-        <img
-          class="poster"
-          :src="'https://image.tmdb.org/t/p/original/' + film.poster_path"
-          alt=""
-        />
-        <h3>{{ film.title }}</h3>
-        <p>
-          <img
-            class="flag"
-            :src="
-              existingFlag(film.original_language)
-                ? require(`../../assets/flags/${film.original_language}.png`)
-                : null
-            "
-          />
-        </p>
-        <p>{{ film.vote_average }}</p>
+        <FilmCard :info="film" />
+      </li>
+    </ul>
+    <h2>Serie TV</h2>
+    <ul class="d-flex flex-wrap">
+      <li class="card-box p-2" v-for="tv in SelectedFilm.tv" :key="tv.id">
+        <FilmCard :info="tv" />
       </li>
     </ul>
   </section>
@@ -30,18 +21,20 @@
 
 <script>
 import SelectedFilm from "../../shared/SelectedFilm"
+import FilmCard from "../commons/FilmCard.vue"
 export default {
   name: "sectionFilm",
+  components: {
+    FilmCard,
+  },
+  props: {
+    info: Object,
+  },
   data() {
     return {
       SelectedFilm,
-      flags: ["en", "it", "de", "fr"],
+      flags: ["en", "it", "de", "fr", "ja"],
     }
-  },
-  methods: {
-    existingFlag(lang) {
-      return this.flags.includes(lang)
-    },
   },
 }
 </script>

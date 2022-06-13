@@ -42,6 +42,21 @@ export default {
         .catch(error => {
           console.log(error)
         })
+
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: "54ea321a9ac454295116f169f4a30268",
+            query: this.search,
+            language: "it-IT",
+          },
+        })
+        .then(response => {
+          SelectedFilm.tv = response.data.results
+        })
+        .catch(error => {
+          console.log(error)
+        })
     },
   },
 }
