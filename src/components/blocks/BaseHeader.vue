@@ -26,6 +26,7 @@ header {
   background-color: rgb(0, 0, 0);
   position: fixed;
   width: 100%;
+  z-index: 10;
 
   img {
     height: 3rem;

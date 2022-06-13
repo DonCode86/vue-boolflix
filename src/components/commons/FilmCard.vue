@@ -17,7 +17,12 @@
         "
       />
     </p>
-    <p>{{ vote }}</p>
+    <span v-if="info.vote_average <= 0"></span>
+    <span v-else>
+      <i v-for="index in addStar(info.vote_average)" :key="index">
+        <span class="icon-color fas fa-star" style="color: gold"></span
+      ></i>
+    </span>
   </div>
 </template>
 
@@ -35,6 +40,9 @@ export default {
   methods: {
     existingFlag(lang) {
       return this.flags.includes(lang)
+    },
+    addStar(vote) {
+      return Math.round(vote / 2)
     },
   },
   computed: {
