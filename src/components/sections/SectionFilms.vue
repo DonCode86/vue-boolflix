@@ -41,7 +41,6 @@ export default {
 
 <style>
 .poster {
-  width: 18.75rem;
   height: 28.125rem;
 }
 
